@@ -19,6 +19,10 @@ export class Allergies {
   }
 
   allergicTo(allergen) {
-    return false;
+    if (ALLERGENS[this.score] === allergen) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
