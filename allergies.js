@@ -12,17 +12,22 @@ const ALLERGENS = {
 export class Allergies {
   constructor(score) {
     this.score = score;
+    this.allergens = [];
   }
 
   list() {
-    throw new Error('Remove this statement and implement this function');
+    let allergenScore = this.score;
+    let allergenKeys = Object.keys(ALLERGENS).reverse();
+    for (let i = 0; i < allergenKeys.length; i++) {
+      if (allergenScore >= allergenKeys[i]) {
+        this.allergens.push(ALLERGENS[allergenKeys[i]]);
+        allergenScore -= allergenKeys[i];
+      }
+    }
+    return this.allergens;
   }
 
   allergicTo(allergen) {
-    if (ALLERGENS[this.score] === allergen) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.list().includes(allergen);
   }
 }
