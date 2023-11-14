@@ -10,15 +10,15 @@ const ALLERGENS = {
 }
 
 export class Allergies {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(score) {
+    this.score = score;
   }
 
   list() {
     throw new Error('Remove this statement and implement this function');
   }
 
-  allergicTo() {
-    throw new Error('Remove this statement and implement this function');
+  allergicTo(allergen) {
+    return false;
   }
 }
