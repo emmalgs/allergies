@@ -22,10 +22,8 @@ export class Allergies {
     let allergenKeys = Object.keys(ALLERGENS).reverse();
     for (let i = 0; i < allergenKeys.length; i++) {
       if (allergenScore >= allergenKeys[i]) {
-        if (allergenScore % allergenKeys[i] === 0) {
         this.allergens.unshift(ALLERGENS[allergenKeys[i]]);
         allergenScore -= allergenKeys[i];
-        }
       }
     }
     return this.allergens;
