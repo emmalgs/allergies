@@ -1,5 +1,3 @@
-import { _ } from "core-js";
-
 const ALLERGENS = {
   1: "eggs",
   2: "peanuts",
@@ -18,6 +16,9 @@ export class Allergies {
   }
 
   list() {
+    if (this.score > 255) {
+      this.score = this.score -= 256;
+    }
     let allergenScore = this.score;
     let allergenKeys = Object.keys(ALLERGENS).reverse();
     for (let i = 0; i < allergenKeys.length; i++) {
